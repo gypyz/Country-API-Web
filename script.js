@@ -41,6 +41,7 @@ const getCountry = function (country) {
                 <p class="country_row"><span>Capital</span>${data.capital}</p>
             </div>
         </article>`;
+    countries.innerHTML = "";
     countries.insertAdjacentHTML("beforeend", html);
     countries.style.opacity = 1;
   });
