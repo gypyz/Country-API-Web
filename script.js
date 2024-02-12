@@ -36,8 +36,12 @@ const getCountry = function (country) {
                 <h4 class="country_region">
                 <button class="regionClick">${data.region}</button></h4>
                 <p class="country_row"><span>🗣️</span>${allLang}</p>
-                <p class="country_row"><span>💰</span>${currency[0][1].name} (${currency[0][1].symbol})</p>
-                <p class="country_row"><span>Population</span>${data.population}</p>
+                <p class="country_row"><span>💰</span>${currency[0][1].name} ${
+			currency[0][1].symbol == undefined ? "" : `(${currency[0][1].symbol})`
+		}</p>
+                <p class="country_row"><span>Population</span>${
+									data.population
+								}</p>
                 <p class="country_row"><span>Border</span>${borders}</p>
                 <p class="country_row"><span>Capital</span>${data.capital}</p>
             </div>
