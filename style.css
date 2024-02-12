@@ -58,6 +58,7 @@ body {
   font-size: 2rem;
   opacity: 0;
   transition: opacity 1s;
+  max-width: 100vw;
 }
 .country {
   background-color: #fff;
@@ -90,8 +91,21 @@ body {
 .country_row:not(:last-child) {
   margin-bottom: 1rem;
 }
+
 .country_row span {
   display: inline-block;
   margin-right: 2rem;
   font-size: 2.4rem;
+}
+.country_row p {
+  flex-wrap: wrap;
+}
+
+.country {
+  max-width: 30rem;
+}
+.regionClick {
+  border: none;
+  background-color: white;
+  cursor: pointer;
 }
