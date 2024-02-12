@@ -41,7 +41,7 @@ const getCountry = function (country) {
                 <p class="country_row"><span>Capital</span>${data.capital}</p>
             </div>
         </article>`;
-    countries.innerHTML = "";
+
     countries.insertAdjacentHTML("beforeend", html);
     countries.style.opacity = 1;
   });
@@ -55,7 +55,14 @@ const getCountry = function (country) {
 // const html = `<h2>New Message:</h2><p>this is a message from script</p>`;
 
 // emptySpace.insertAdjacentHTML("beforeend", html);
-
+const getRegion = function (region) {
+  const req = new XMLHttpRequest();
+  req.open("GET", `https://restcountries.com/v3.1/region/${region}`);
+  req.send();
+  req.addEventListener("load", (e) => {
+    const [data] = JSON.parse(this.responseText);
+  });
+};
 const searchField = document.querySelector(".search-field");
 const searchButton = document.querySelector(".search-button");
 const countriesList = document.querySelector(".countries-list");
@@ -69,6 +76,7 @@ searchButton.addEventListener("click", (e) => {
   // displayCountries(filteredCountries);
   getCountry(searchTerm);
   console.log(searchTerm);
+  countries.innerHTML = "";
 });
 
 // function displayCountries(countries) {

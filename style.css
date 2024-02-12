@@ -95,3 +95,7 @@ body {
   margin-right: 2rem;
   font-size: 2.4rem;
 }
+
+.country {
+  max-width: 30rem;
+}
