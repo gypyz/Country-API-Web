@@ -197,6 +197,55 @@ const getCapitalCity = function (capitalCity) {
 	});
 };
 
+const showMembers = function () {
+	// You can replace this with actual logic to fetch member information
+	const members = [
+		{ name: "6421600158 ปิยังกูร ต่ายจันทร์", imageUrl: "kuy.png" },
+		{ name: "6421600166 พงศกร เนตรประจักร์", imageUrl: "korn.jpg" },
+		{ name: "6421604773 จิณณวัตร มากสี", imageUrl: "ball.png" },
+		{ name: "6421604781 จิรภัทร โพธิ์สร้อย", imageUrl: "kanoon.png" },
+		{ name: "6421600115 ประดิพัทธ์ นันทะสาร", imageUrl: "nik.png" },
+	];
+
+	const memberList = document.querySelector(".member-list");
+	memberList.innerHTML = ""; // Clear previous member data
+
+	// Display member information in the modal
+	members.forEach((member) => {
+		const memberInfo = document.createElement("div");
+		memberInfo.innerHTML = `
+		  <div class="member">
+			<img src="${member.imageUrl}" alt="${member.name}" class="member-image" />
+			<p class="member-name">${member.name}</p>
+		  </div>
+		`;
+		memberList.appendChild(memberInfo);
+	});
+
+	// Show the modal
+	const modal = document.getElementById("membersModal");
+	modal.style.display = "block";
+};
+
+// Handle the button click event
+const showMembersButton = document.getElementById("showMembersButton");
+showMembersButton.addEventListener("click", showMembers);
+
+// Close the modal when the close button is clicked
+const closeModalButton = document.getElementById("closeModal");
+closeModalButton.addEventListener("click", function () {
+	const modal = document.getElementById("membersModal");
+	modal.style.display = "none";
+});
+
+// Close the modal if the user clicks outside of it
+window.addEventListener("click", function (event) {
+	const modal = document.getElementById("membersModal");
+	if (event.target === modal) {
+		modal.style.display = "none";
+	}
+});
+
 const searchBy = document.querySelector(".search-by");
 const searchField = document.querySelector(".search-field");
 const searchButton = document.querySelector(".search-button");
