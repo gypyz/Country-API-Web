@@ -24,6 +24,7 @@ body {
   background-size: cover;
   width: 100vw;
   height: 100vh;
+  background-attachment: fixed;
 }
 .search-form {
   background-color: #f1f1f1;
@@ -72,6 +73,7 @@ input:focus {
   font-size: 2rem;
   opacity: 0;
   transition: opacity 1s;
+  width: 100vw;
 }
 .country {
   background-color: #fff;
