@@ -3,32 +3,32 @@
 const countries = document.querySelector(".countries");
 
 const getCountry = function (country) {
-	// console.log(country);
-	const req = new XMLHttpRequest();
-	req.open("GET", `https://restcountries.com/v3.1/name/${country}`);
-	req.send();
+  // console.log(country);
+  const req = new XMLHttpRequest();
+  req.open("GET", `https://restcountries.com/v3.1/name/${country}`);
+  req.send();
 
-	req.addEventListener("load", function () {
-		const [data] = JSON.parse(this.responseText);
-		const lang = Object.entries(data.languages);
-		const currency = Object.entries(data.currencies);
-		console.log(data.borders);
-		let allLang = "";
-		let borders = "";
-		if (data.borders == null) {
-			borders = "-";
-		} else {
-			borders = data.borders;
-		}
-		for (let i = 0; i < lang.length; i++) {
-			if (i == lang.length - 1) {
-				allLang = allLang + lang[i][1];
-			} else {
-				allLang = allLang + lang[i][1] + ", ";
-			}
-		}
-		console.log(allLang);
-		const html = `
+  req.addEventListener("load", function () {
+    const [data] = JSON.parse(this.responseText);
+    const lang = Object.entries(data.languages);
+    const currency = Object.entries(data.currencies);
+    console.log(data.borders);
+    let allLang = "";
+    let borders = "";
+    if (data.borders == null) {
+      borders = "-";
+    } else {
+      borders = data.borders;
+    }
+    for (let i = 0; i < lang.length; i++) {
+      if (i == lang.length - 1) {
+        allLang = allLang + lang[i][1];
+      } else {
+        allLang = allLang + lang[i][1] + ", ";
+      }
+    }
+    console.log(allLang);
+    const html = `
         <article class="country">
             <img src="${data.flags.png}" alt="" class="country_img" />
             <div class="country_data">
@@ -37,85 +37,134 @@ const getCountry = function (country) {
                 <button class="regionClick">${data.region}</button></h4>
                 <p class="country_row"><span>🗣️</span>${allLang}</p>
                 <p class="country_row"><span>💰</span>${currency[0][1].name} ${
-			currency[0][1].symbol == undefined ? "" : `(${currency[0][1].symbol})`
-		}</p>
+      currency[0][1].symbol == undefined ? "" : `(${currency[0][1].symbol})`
+    }</p>
                 <p class="country_row"><span>Population</span>${
-									data.population
-								}</p>
+                  data.population
+                }</p>
                 <p class="country_row"><span>Border</span>${borders}</p>
                 <p class="country_row"><span>Capital</span>${data.capital}</p>
             </div>
         </article>`;
 
-		countries.insertAdjacentHTML("beforeend", html);
-		countries.style.opacity = 1;
-		const regionClick = document.querySelector(".regionClick");
-		regionClick.addEventListener("click", (e) => {
-			// console.log(data.region);
-			getRegion(data.region);
-		});
-	});
+    countries.insertAdjacentHTML("beforeend", html);
+    countries.style.opacity = 1;
+    const regionClick = document.querySelector(".regionClick");
+    regionClick.addEventListener("click", (e) => {
+      // console.log(data.region);
+      getRegion(data.region);
+    });
+  });
 };
 
 const getRegion = function (region) {
-	const req = new XMLHttpRequest();
-	req.open("GET", `https://restcountries.com/v3.1/region/${region}`);
-	req.send();
-	req.addEventListener("load", function () {
-		const data = JSON.parse(this.responseText);
+  const req = new XMLHttpRequest();
+  req.open("GET", `https://restcountries.com/v3.1/region/${region}`);
+  req.send();
+  req.addEventListener("load", function () {
+    const data = JSON.parse(this.responseText);
 
-		console.log(data[0].name.official);
-		console.log(data.length);
-		for (let i = 0; i < data.length; i++) {
-			getCountry(data[i].name.official);
-		}
-	});
+    console.log(data[0].name.official);
+    console.log(data.length);
+    for (let i = 0; i < data.length; i++) {
+      getCountry(data[i].name.official);
+    }
+  });
 };
 
 const getCurrency = function (currency) {
-	const req = new XMLHttpRequest();
-	req.open("GET", `https://restcountries.com/v3.1/currency/${currency}`);
-	req.send();
-	req.addEventListener("load", function () {
-		const data = JSON.parse(this.responseText);
+  const req = new XMLHttpRequest();
+  req.open("GET", `https://restcountries.com/v3.1/currency/${currency}`);
+  req.send();
+  req.addEventListener("load", function () {
+    const data = JSON.parse(this.responseText);
 
-		console.log(data[0].name.official);
-		console.log(data.length);
-		for (let i = 0; i < data.length; i++) {
-			getCountry(data[i].name.official);
-		}
-	});
+    console.log(data[0].name.official);
+    console.log(data.length);
+    for (let i = 0; i < data.length; i++) {
+      getCountry(data[i].name.official);
+    }
+  });
 };
 
 const getLanguage = function (language) {
-	const req = new XMLHttpRequest();
-	req.open("GET", `https://restcountries.com/v3.1/lang/${language}`);
-	req.send();
-	req.addEventListener("load", function () {
-		const data = JSON.parse(this.responseText);
+  const req = new XMLHttpRequest();
+  req.open("GET", `https://restcountries.com/v3.1/lang/${language}`);
+  req.send();
+  req.addEventListener("load", function () {
+    const data = JSON.parse(this.responseText);
 
-		console.log(data[0].name.official);
-		console.log(data.length);
-		for (let i = 0; i < data.length; i++) {
-			getCountry(data[i].name.official);
-		}
-	});
+    console.log(data[0].name.official);
+    console.log(data.length);
+    for (let i = 0; i < data.length; i++) {
+      getCountry(data[i].name.official);
+    }
+  });
 };
 
 const getCapitalCity = function (capitalCity) {
-	const req = new XMLHttpRequest();
-	req.open("GET", `https://restcountries.com/v3.1/capital/${capitalCity}`);
-	req.send();
-	req.addEventListener("load", function () {
-		const data = JSON.parse(this.responseText);
+  const req = new XMLHttpRequest();
+  req.open("GET", `https://restcountries.com/v3.1/capital/${capitalCity}`);
+  req.send();
+  req.addEventListener("load", function () {
+    const data = JSON.parse(this.responseText);
 
-		console.log(data[0].name.official);
-		console.log(data.length);
-		for (let i = 0; i < data.length; i++) {
-			getCountry(data[i].name.official);
-		}
-	});
+    console.log(data[0].name.official);
+    console.log(data.length);
+    for (let i = 0; i < data.length; i++) {
+      getCountry(data[i].name.official);
+    }
+  });
 };
+
+const showMembers = function () {
+  // You can replace this with actual logic to fetch member information
+  const members = [
+    { name: "6421600158 ปิยังกูร ต่ายจันทร์", imageUrl: "kuy.png" },
+    { name: "6421600166 พงศกร เนตรประจักร์", imageUrl: "korn.jpg" },
+    { name: "6421604773 จิณณวัตร มากสี", imageUrl: "ball.png" },
+    { name: "6421604781 จิรภัทร โพธิ์สร้อย", imageUrl: "kanoon.png" },
+    { name: "6421600115 ประดิพัทธ์ นันทะสาร", imageUrl: "nik.png" },
+  ];
+
+  const memberList = document.querySelector(".member-list");
+  memberList.innerHTML = ""; // Clear previous member data
+
+  // Display member information in the modal
+  members.forEach((member) => {
+    const memberInfo = document.createElement("div");
+    memberInfo.innerHTML = `
+		<div class="member">
+		  <img src="${member.imageUrl}" alt="${member.name}" class="member-image" />
+		  <p class="member-name">${member.name}</p>
+		</div>
+	  `;
+    memberList.appendChild(memberInfo);
+  });
+
+  // Show the modal
+  const modal = document.getElementById("membersModal");
+  modal.style.display = "block";
+};
+
+// Handle the button click event
+const showMembersButton = document.getElementById("showMembersButton");
+showMembersButton.addEventListener("click", showMembers);
+
+// Close the modal when the close button is clicked
+const closeModalButton = document.getElementById("closeModal");
+closeModalButton.addEventListener("click", function () {
+  const modal = document.getElementById("membersModal");
+  modal.style.display = "none";
+});
+
+// Close the modal if the user clicks outside of it
+window.addEventListener("click", function (event) {
+  const modal = document.getElementById("membersModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
 
 // getCountry("Thailand");
 // getCountry("japan");
@@ -127,21 +176,21 @@ const searchButton = document.querySelector(".search-button");
 const countriesList = document.querySelector(".countries-list");
 
 searchButton.addEventListener("click", (e) => {
-	e.preventDefault();
-	countries.innerHTML = "";
+  e.preventDefault();
+  countries.innerHTML = "";
 
-	const searchTerm = searchField.value.toLowerCase();
-	if (searchBy.value === "name") {
-		getCountry(searchTerm);
-	} else if (searchBy.value === "region") {
-		getRegion(searchTerm);
-	} else if (searchBy.value === "currency") {
-		getCurrency(searchTerm);
-	} else if (searchBy.value === "language") {
-		getLanguage(searchTerm);
-	} else if (searchBy.value === "capital-city") {
-		getCapitalCity(searchTerm);
-	}
-	console.log(searchBy.value);
-	console.log(searchTerm);
+  const searchTerm = searchField.value.toLowerCase();
+  if (searchBy.value === "name") {
+    getCountry(searchTerm);
+  } else if (searchBy.value === "region") {
+    getRegion(searchTerm);
+  } else if (searchBy.value === "currency") {
+    getCurrency(searchTerm);
+  } else if (searchBy.value === "language") {
+    getLanguage(searchTerm);
+  } else if (searchBy.value === "capital-city") {
+    getCapitalCity(searchTerm);
+  }
+  console.log(searchBy.value);
+  console.log(searchTerm);
 });

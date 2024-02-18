@@ -1,7 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  font-family: "Itim", cursive;
+  font-weight: bold;
+  font-style: normal;
 }
 html {
   font-size: 65%;
@@ -10,11 +15,13 @@ html {
 body {
   font-family: system-ui;
   color: #555;
-  background-color: #f7f7f7;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url("asia.gif");
+  background-size: cover;
 }
 .search-form {
   background-color: #f1f1f1;
@@ -114,3 +121,63 @@ body {
 	width: 100%;
 	height: 0;
 } */
+
+.right-button-container {
+  position: fixed;
+  top: 900px;
+  right: 0;
+  padding: 10px;
+}
+
+.show-members-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Style the modal container to center it on the screen */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the close button inside the modal */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+}
+
+/* Style the member information inside the modal */
+.member-list {
+  padding: 20px;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.member-image {
+  width: 120px;
+  height: 140px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.member-name {
+  font-size: 20px;
+}
