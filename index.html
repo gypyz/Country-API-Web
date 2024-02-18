@@ -21,6 +21,16 @@
       <button type="submit" class="search-button">Search</button>
       <!-- <div class="break"></div> -->
     </form>
+
+    <!-- Modal structure to display member information -->
+    <div id="membersModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <div class="member-list">
+          <!-- Member information will be displayed here -->
+        </div>
+      </div>
+    </div>
     <div class="countries-list"></div>
     <div class="space"></div>
     <main class="contianer">
@@ -34,5 +44,10 @@
 				</article> -->
       </div>
     </main>
+    <div class="right-button-container">
+      <button id="showMembersButton" class="show-members-button">
+        Show Members
+      </button>
+    </div>
   </body>
 </html>
