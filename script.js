@@ -73,10 +73,56 @@ const getRegion = function (region) {
   });
 };
 
+const getCurrency = function (currency) {
+  const req = new XMLHttpRequest();
+  req.open("GET", `https://restcountries.com/v3.1/currency/${currency}`);
+  req.send();
+  req.addEventListener("load", function () {
+    const data = JSON.parse(this.responseText);
+
+    console.log(data[0].name.official);
+    console.log(data.length);
+    for (let i = 0; i < data.length; i++) {
+      getCountry(data[i].name.official);
+    }
+  });
+};
+
+const getLanguage = function (language) {
+  const req = new XMLHttpRequest();
+  req.open("GET", `https://restcountries.com/v3.1/lang/${language}`);
+  req.send();
+  req.addEventListener("load", function () {
+    const data = JSON.parse(this.responseText);
+
+    console.log(data[0].name.official);
+    console.log(data.length);
+    for (let i = 0; i < data.length; i++) {
+      getCountry(data[i].name.official);
+    }
+  });
+};
+
+const getCapitalCity = function (capitalCity) {
+  const req = new XMLHttpRequest();
+  req.open("GET", `https://restcountries.com/v3.1/capital/${capitalCity}`);
+  req.send();
+  req.addEventListener("load", function () {
+    const data = JSON.parse(this.responseText);
+
+    console.log(data[0].name.official);
+    console.log(data.length);
+    for (let i = 0; i < data.length; i++) {
+      getCountry(data[i].name.official);
+    }
+  });
+};
+
 // getCountry("Thailand");
 // getCountry("japan");
 // getCountry("USA");
 // getCountry("Republic of India");
+const searchBy = document.querySelector(".search-by");
 const searchField = document.querySelector(".search-field");
 const searchButton = document.querySelector(".search-button");
 const countriesList = document.querySelector(".countries-list");
@@ -84,10 +130,19 @@ const countriesList = document.querySelector(".countries-list");
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
   countries.innerHTML = "";
-  const searchTerm = searchField.value.toLowerCase();
-  getCountry(searchTerm);
 
+  const searchTerm = searchField.value.toLowerCase();
+  if (searchBy.value === "name") {
+    getCountry(searchTerm);
+  } else if (searchBy.value === "region") {
+    getRegion(searchTerm);
+  } else if (searchBy.value === "currency") {
+    getCurrency(searchTerm);
+  } else if (searchBy.value === "language") {
+    getLanguage(searchTerm);
+  } else if (searchBy.value === "capital-city") {
+    getCapitalCity(searchTerm);
+  }
+  console.log(searchBy.value);
   console.log(searchTerm);
 });
-
-// getRegion("asia");
