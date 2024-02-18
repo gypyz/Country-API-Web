@@ -22,6 +22,8 @@ body {
 	justify-content: center;
 	background-image: url("asia.gif");
 	background-size: cover;
+	width: 100vw;
+	height: 100vh;
 }
 .search-form {
 	background-color: #f1f1f1;
