@@ -67,6 +67,7 @@ body {
   font-size: 2rem;
   opacity: 0;
   transition: opacity 1s;
+  max-width: 100vw;
 }
 .country {
   background-color: #fff;
@@ -142,13 +143,16 @@ body {
 
 /* Style the modal container to center it on the screen */
 .modal {
-  display: none;
+  display: block;
+  visibility: hidden;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #ffffff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 /* Style the close button inside the modal */
