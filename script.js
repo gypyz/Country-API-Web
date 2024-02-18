@@ -239,12 +239,13 @@ closeModalButton.addEventListener("click", function () {
 });
 
 // Close the modal if the user clicks outside of it
-window.addEventListener("click", function (event) {
-  const modal = document.getElementById("membersModal");
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-});
+// window.addEventListener("click", function (event) {
+// 	const modal = document.getElementById("membersModal");
+// 	if (event.target === modal) {
+// 		modal.style.opacity = 0;
+// 		modal.style.visibility = "hidden";
+// 	}
+// });
 
 const searchBy = document.querySelector(".search-by");
 const searchField = document.querySelector(".search-field");
@@ -270,4 +271,20 @@ searchButton.addEventListener("click", (e) => {
   }
   // console.log(searchBy.value);
   // console.log(searchTerm);
+});
+
+// Replace the existing JavaScript code with the following lines
+const toggleBackgroundCheckbox = document.getElementById(
+  "toggleBackgroundCheckbox"
+);
+const body = document.body;
+
+toggleBackgroundCheckbox.addEventListener("change", () => {
+  if (toggleBackgroundCheckbox.checked) {
+    // Open the background with the GIF image
+    body.style.backgroundImage = 'url("asia.gif")';
+  } else {
+    // Close the background
+    body.style.backgroundImage = "none";
+  }
 });
