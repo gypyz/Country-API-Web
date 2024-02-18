@@ -56,7 +56,7 @@ body {
 .countries {
   display: flex;
   font-size: 2rem;
-  opacity: 1;
+  opacity: 0;
   transition: opacity 1s;
 }
 .country {
@@ -76,6 +76,7 @@ body {
 }
 .country_data {
   padding: 2.5rem 3.75rem 3rem 3.75rem;
+  word-wrap: break-word;
 }
 .country_name {
   font-size: 2.7rem;
@@ -90,8 +91,26 @@ body {
 .country_row:not(:last-child) {
   margin-bottom: 1rem;
 }
+
 .country_row span {
   display: inline-block;
   margin-right: 2rem;
   font-size: 2.4rem;
 }
+
+.country {
+  max-width: 30rem;
+}
+.regionClick {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.borderText {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* .break {
+	width: 100%;
+	height: 0;
+} */
