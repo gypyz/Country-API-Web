@@ -224,7 +224,8 @@ const showMembers = function () {
 
   // Show the modal
   const modal = document.getElementById("membersModal");
-  modal.style.display = "block";
+  modal.style.opacity = 1;
+  modal.style.visibility = "visible";
 };
 
 // Handle the button click event
@@ -235,7 +236,8 @@ showMembersButton.addEventListener("click", showMembers);
 const closeModalButton = document.getElementById("closeModal");
 closeModalButton.addEventListener("click", function () {
   const modal = document.getElementById("membersModal");
-  modal.style.display = "none";
+  modal.style.opacity = 0;
+  modal.style.visibility = "hidden";
 });
 
 // Close the modal if the user clicks outside of it
