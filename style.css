@@ -133,7 +133,7 @@ input:focus {
 
 .right-button-container {
   position: fixed;
-  top: 900px;
+  top: 90%;
   right: 0;
   padding: 10px;
 }
@@ -175,6 +175,9 @@ input:focus {
 
 /* Style the member information inside the modal */
 .member-list {
+  width: max-content;
+  height: max-content;
+
   padding: 20px;
 }
 
@@ -204,8 +207,8 @@ input:focus {
 /* Add these lines within your existing CSS styles */
 .toggle-switch {
   position: fixed; /* Change to fixed positioning */
-  top: 850px;
-  right: 40px; /* Adjust the right positioning */
+  top: 90%;
+  right: 0px; /* Adjust the right positioning */
   z-index: 1;
   display: inline-block;
   width: 60px;
