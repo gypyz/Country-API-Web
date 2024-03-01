@@ -165,7 +165,7 @@ const getCurrency = function (currency) {
 
 const getLanguage = function (language) {
 	const req = new XMLHttpRequest();
-	req.open("GET", `www.themealdb.com/api/json/v1/1/search.php?f=a`);
+	req.open("GET", `https://restcountries.com/v3.1/lang/${language}`);
 	req.send();
 	req.addEventListener("load", function () {
 		if (req.status == 200) {
