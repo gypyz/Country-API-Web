@@ -24,6 +24,7 @@ body {
 	background-size: cover;
 	width: 100vw;
 	height: 100vh;
+	background-attachment: fixed;
 }
 .search-form {
 	background-color: #f1f1f1;

@@ -200,7 +200,7 @@ const getCapitalCity = function (capitalCity) {
 const showMembers = function () {
 	// You can replace this with actual logic to fetch member information
 	const members = [
-		{ name: "6421600158 ปิยังกูร ต่ายจันทร์", imageUrl: "kuy.png" },
+		{ name: "6421600158 ปิยังกูร ต่ายจันทร์", imageUrl: "guy.png" },
 		{ name: "6421600166 พงศกร เนตรประจักร์", imageUrl: "korn.jpg" },
 		{ name: "6421604773 จิณณวัตร มากสี", imageUrl: "ball.png" },
 		{ name: "6421604781 จิรภัทร โพธิ์สร้อย", imageUrl: "kanoon.png" },
